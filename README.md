@@ -8,4 +8,4 @@ Have fun! :)
 
 # Projects
 
-* [rust-tide-backend](rust-tide-backend/README.md) is a backend implmentation using Rust and [tide](https://github.com/http-rs/tide)
+* [rust-tide-backend](rust-tide-backend/README.md) is a backend implementation using Rust and [tide](https://github.com/http-rs/tide)
