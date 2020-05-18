@@ -1,0 +1,8 @@
+[db]
+connect_str = "sqlite::data.db"
+
+[log]
+level = "info"
+
+[app]
+init_db = false
