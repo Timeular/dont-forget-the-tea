@@ -9,6 +9,8 @@ pub enum Error {
     DBError(#[from] sqlx::Error),
     #[error("db query error: {0}")]
     DBQueryError(sqlx::Error),
+    #[error("no item found")]
+    NoItemFoundError,
     #[error("io error: {0}")]
     IOError(#[from] std::io::Error),
 }
