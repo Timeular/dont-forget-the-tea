@@ -18,5 +18,11 @@ pub struct ShoppingItem {
     pub id: i64,
     pub name: String,
     pub checked: bool,
-    pub quantity: usize,
+    pub quantity: Option<i32>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct ShoppingItemRequest {
+    pub name: String,
+    pub quantity: Option<i32>,
 }

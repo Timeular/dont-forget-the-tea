@@ -1,11 +1,11 @@
 Auth: Basic-Auth
 
 `GET /list`
-returns all shopping lists ordered by `created_date` desc
+returns all shopping lists ordered by `created_at` desc
 
 `GET /list/id`
 returns one shopping list
-fields: `name, date_created, items: [item]`
+fields: `name, created_at, items: [item]`
 
 `POST /list`
 creates a shopping list
@@ -22,11 +22,11 @@ deletes a shopping list
 adds an item
 fields: `name, optional quantity`
 
-`DELETE /list/item/id`
+`DELETE /list/id/item/id`
 deleted an item
 
-`PUT /list/item/id/check`
+`PUT /list/id/item/id/check`
 checks an item
 
-`PUT /list/item/id/uncheck`
+`PUT /list/id/item/id/uncheck`
 unchecks an item

@@ -1,2 +1,5 @@
 [app]
 init_db = true
+
+[log]
+level = "debug"

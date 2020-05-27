@@ -41,19 +41,27 @@ async fn main() -> Result<()> {
         .and(with_db(pool.clone()))
         .and_then(handler::health_handler);
 
-    let list = warp::path("list");
-    let shopping_list_route = list
-        .and(warp::post())
+    let list_post = warp::post()
         .and(warp::body::json())
         .and(with_db(pool.clone()))
-        .and_then(handler::create_list)
-        .or(list
-            .and(warp::get())
+        .and_then(handler::create_list);
+
+    let list_get = warp::get()
+        .and(with_db(pool.clone()))
+        .and_then(handler::get_lists);
+
+    let item = warp::path::param().and(warp::path("item"));
+    let list_items_post = 
+            item
+            .and(warp::post())
+            .and(warp::body::json())
             .and(with_db(pool.clone()))
-            .and_then(handler::get_lists));
+            .and_then(handler::create_item);
+
+    let list_routes = warp::path("list").and(list_items_post.or(list_get).or(list_post));
 
     let routes = health_route
-        .or(shopping_list_route)
+        .or(list_routes)
         .with(warp::cors().allow_any_origin())
         .recover(error::handle_rejection);
 

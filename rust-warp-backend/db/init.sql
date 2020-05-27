@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS shopping_list_item
     name CHAR(255) NOT NULL,
     checked BOOLEAN DEFAULT false NOT NULL,
     quantity INTEGER,
-    FOREIGN KEY (shopping_list_id) REFERENCES shooping_list(id)
+    FOREIGN KEY (shopping_list_id) REFERENCES shopping_list(id)
 );
 
