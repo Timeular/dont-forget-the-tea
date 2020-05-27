@@ -18,7 +18,7 @@ fields: `onlyUnchecked boolean (either copies all items, or only unchecked items
 `DELETE /list/id`
 deletes a shopping list
 
-`POST /list/item`
+`POST /list/id/item`
 adds an item
 fields: `name, optional quantity`
 
