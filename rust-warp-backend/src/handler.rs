@@ -1,19 +1,8 @@
+use crate::data::{ShoppingList, ShoppingListRequest};
 use crate::{error::Error::*, WebResult};
 use futures::StreamExt;
-use serde::{Deserialize, Serialize};
 use sqlx::{sqlite::SqliteRow, Row, SqlitePool};
 use warp::{reject, reply::json, Reply};
-
-#[derive(Serialize, Deserialize)]
-pub struct ShoppingListRequest {
-    pub name: String,
-}
-
-#[derive(Serialize, Deserialize)]
-struct ShoppingList {
-    pub id: i64,
-    pub name: String,
-}
 
 pub async fn health_handler(db_pool: SqlitePool) -> WebResult<impl Reply> {
     sqlx::query("SELECT 1")
@@ -38,6 +27,8 @@ pub async fn get_lists(db_pool: SqlitePool) -> WebResult<impl Reply> {
         .map(|row: SqliteRow| ShoppingList {
             id: row.get(0),
             name: row.get(1),
+            created_at: row.get(2),
+            items: vec![],
         })
         .fetch(&db_pool);
     let mut result: Vec<ShoppingList> = Vec::new();

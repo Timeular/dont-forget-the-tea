@@ -7,6 +7,7 @@ use std::convert::Infallible;
 use std::fs;
 use warp::{Filter, Rejection};
 
+mod data;
 mod error;
 mod handler;
 mod settings;

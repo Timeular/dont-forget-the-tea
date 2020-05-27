@@ -9,18 +9,18 @@ fields: `name, date_created, items: [item]`
 
 `POST /list`
 creates a shopping list
-fields: name, optional date
+fields: `name, optional date`
 
 `POST /list/id/copy`
 creates a new list, based on an old list
-fields: onlyUnchecked boolean (either copies all items, or only unchecked items)
+fields: `onlyUnchecked boolean (either copies all items, or only unchecked items)`
 
 `DELETE /list/id`
 deletes a shopping list
 
 `POST /list/item`
 adds an item
-fields: name, optional quantity
+fields: `name, optional quantity`
 
 `DELETE /list/item/id`
 deleted an item
